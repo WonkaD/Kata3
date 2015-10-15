@@ -1,9 +1,11 @@
 package kata3;
 
 import java.awt.Dimension;
+import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.ui.ApplicationFrame;
 
@@ -21,6 +23,16 @@ public class HistogramDisplay extends ApplicationFrame {
     }
     
     private JFreeChart createChart(DefaultCategoryDataset dataset){
-        
+        JFreeChart chart = ChartFactory.createBarChart(null,
+                "Dominios",
+                "Nº Email",
+                dataset,
+                PlotOrientation.VERTICAL,
+                false,
+                false,
+                false);
+        return chart;
     }
+    
+    private 
 }
