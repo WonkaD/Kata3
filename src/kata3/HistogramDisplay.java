@@ -2,7 +2,6 @@ package kata3;
 
 import java.awt.Dimension;
 import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartFrame;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
@@ -23,16 +22,32 @@ public class HistogramDisplay extends ApplicationFrame {
     }
     
     private JFreeChart createChart(DefaultCategoryDataset dataset){
-        JFreeChart chart = ChartFactory.createBarChart(null,
+        JFreeChart chart = ChartFactory.createBarChart(
+                "Histo",
                 "Dominios",
                 "Nº Email",
                 dataset,
                 PlotOrientation.VERTICAL,
-                false,
-                false,
+                true,
+                true,
                 false);
         return chart;
     }
     
-    private 
+    private DefaultCategoryDataset createDataset(){
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        dataset.addValue(10, "ENE", "gmail.com");
+        dataset.addValue(7, "ENE", "hotmail.com");
+        dataset.addValue(10, "ENE", "ulpgc.es");
+        
+        dataset.addValue(30, "FEB", "gmail.com");
+        dataset.addValue(5, "FEB", "hotmail.com");
+        dataset.addValue(8, "FEB", "ulpgc.es");
+        
+        return dataset;
+    }
+    
+    public void execute(){
+        setVisible(true);
+    }
 }
